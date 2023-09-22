@@ -130,5 +130,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.security:spring-security-test:6.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:6.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:6.1.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:2.2.220" level="project" />
   </component>
 </module>
