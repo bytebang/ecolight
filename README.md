@@ -8,6 +8,7 @@ It consists of 3 modules which interact with another.
 * the aggreegator ![Aggregator Status](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg) which is responsible to colllect data from the sensors and finally
 * the dashboard which is responsible to vizualize different aggregator values
 
+
 # license 
 
 This software is dual licensed:
