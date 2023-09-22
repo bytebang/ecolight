@@ -11,6 +11,8 @@ name: Aggregator
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'aggregator/**'
   pull_request:
     branches: [ "main" ]
 
