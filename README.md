@@ -6,7 +6,7 @@ It consists of 3 modules which interact with another.
 
 * The hardware sensors, which are built win an esp32 and esp.home, 
 * the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml) which is responsible to colllect data from the sensors and finally
-* the dashboard which is responsible to vizualize different aggregator values
+* the [![Dashboard](https://github.com/bytebang/ecolight/actions/workflows/dashboard.yml/badge.svg)](https://github.com/bytebang/ecolight/actions/workflows/dashboard.yml) which is responsible to vizualize multiple aggregator values
 
 
 # license 
