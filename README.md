@@ -2,7 +2,10 @@
 
 The objective of _ecolight_ is to reduce energy consumption of buildings by creating an engaging contest-like setup that encourages individuals to maintain room temperatures within a specified range.Beside this, it is possible to use the sensors in a home-automation system to visualize the temperatures in your building 
 
-## example
+## usage
+
+We provide information for the end user how to set up such a system and how to oeprate it in our [wiki](https://github.com/bytebang/ecolight/wiki)
+
 
 ## system architecture
 Ecolight consists of 3 software modules which interact with another.
@@ -10,7 +13,6 @@ Ecolight consists of 3 software modules which interact with another.
 * The [![Hardware](https://img.shields.io/badge/Hardware-esphome-blue)](./hardware) sensors, which are built with an esp32 and [esp.home](https://esphome.io/index.html), 
 * the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](./aggregator) which is responsible to colllect data from the sensors and finally
 * the [![Dashboard](https://github.com/bytebang/ecolight/actions/workflows/dashboard.yml/badge.svg)](./dashboard) which is responsible to vizualize multiple aggregator values
-
 
 # license 
 
