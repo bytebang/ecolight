@@ -1,5 +1,11 @@
 # Getting Started
 
+## Things to try out
+
+`curl -i -H "Content-Type:application/json" -d '{"firstName": "Frodo", "lastName": "Baggins"}' http://localhost:8080/people`
+ 
+ 
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
