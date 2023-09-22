@@ -62,7 +62,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- database fpr persistence -->
+		<!-- database for persistence -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
