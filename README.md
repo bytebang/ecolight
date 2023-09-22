@@ -5,8 +5,9 @@ The goal of ecolight is ...
 It consists of 3 modules which interact with another.
 
 * The hardware sensors, which are built win an esp32 and esp.home, 
-* the aggreegator ![Aggregator Status](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg) which is responsible to colllect data from the sensors and finally
+* the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml) which is responsible to colllect data from the sensors and finally
 * the dashboard which is responsible to vizualize different aggregator values
+
 
 # license 
 
