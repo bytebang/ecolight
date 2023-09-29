@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         file:
-          - hardware/ecolight_ttgo-lora-v1.yml
+          - hardware/ecolight_ttgo-lora-v1.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
