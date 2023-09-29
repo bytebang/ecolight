@@ -1,0 +1,102 @@
+# Example configuration entry
+esphome:
+	platform: ESP32
+    board: ttgo-lora32-v1
+    name: livingroom
+    friendly_name: ""
+	comment: Living room ESP32 controller
+
+<<: !include ecolight.base.yaml
+
+# ------ hardware specific setup 
+# definition of the i2c bus
+i2c:
+  sda: 4
+  scl: 15
+  scan: true
+  id: bus_a
+
+# font to be used
+font:
+  - file: "gfonts://Ubuntu Mono"
+    id: font_name
+    size: 38
+  - file: 
+      type: gfonts
+      family: "Ubuntu Mono"
+      weight: bold
+    id: font_name_bold
+    size: 12
+
+#display to be used
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    id: oled_display
+    reset_pin: 16
+    lambda: |-
+      it.print(0, 0, id(font_name), "Hello World!");
+
+
+# We are using an RGB Light here
+# Define R,G, and B outputs
+output:
+  - platform: ledc
+    id: led_red
+    pin: 19
+  - platform: ledc
+    id: led_green
+    pin: 20
+  - platform: ledc
+    id: led_blue
+    pin: 21
+
+
+# Example configuration entry
+light:
+  - platform: rgb
+	id: signaling_light
+    name: "Signaling Light"
+    red: led_red
+    green: led_green
+    blue: led_blue
+	
+
+# ------ Callback scripts from the ecolight core
+script:
+  # called when it is too warm
+  - id: too_warm
+    then:
+      - light.turn_on
+		id: signaling_light
+        brightness: 100%
+        red: 100%
+        green: 0%
+        blue: 0%
+
+	# called when the temperature is just right
+  - id: just_right
+    then:
+      - light.turn_on
+		id: signaling_light
+        brightness: 100%
+        red: 0%
+        green: 100%
+        blue: 0%
+
+	# called when it is too cold
+  - id: too_cold
+    then:
+      - light.turn_on
+		id: signaling_light
+        brightness: 100%
+        red: 0%
+        green: 0%
+        blue: 100%
+  
+  - id: read_temperature
+    then:
+      - globals.set:
+      id: temperature
+      value: '25'
