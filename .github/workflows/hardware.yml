@@ -1,33 +1,26 @@
 # builds the hardware image for the ttgo-lora-v1 board
-name: ttgo-lora-v1
+name: hardware
 
 on:
   push:
     branches: [ "main" ]
-#    paths:
-#      - 'hardware/**'
+    paths:
+      - 'hardware/**'
   pull_request:
     branches: [ "main" ]
 
-#jobs:
-#  ci:
-#    name: Building ${{ matrix.file }}
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        file:
-#          - ./hardware/ecolight_ttgo-lora32-v1.yaml
-#    steps:
-#      - name: Checkout source code
-#        uses: actions/checkout@v2
-#      - name: Build ESPHome firmware to verify configuration
-#        uses: esphome/build-action@v1.5.0
-#        with:
-#          yaml_file: ${{ matrix.file }}
-          
 jobs:
-  build:
-    uses: esphome/workflows/.github/workflows/publish.yml@main
-    with:
-      files: hardware/ecolight_ttgo-lora-v1.yaml
-      name: ecolight
+  ci:
+    name: Building ${{ matrix.file }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file:
+          - ./hardware/ecolight_ttgo-lora32-v1.yaml
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Build ESPHome firmware to verify configuration
+        uses: esphome/build-action@v1.5.0
+        with:
+          yaml_file: ${{ matrix.file }}
