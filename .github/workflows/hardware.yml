@@ -30,4 +30,4 @@ jobs:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       files: hardware/ecolight_ttgo-lora-v1.yaml
-#      name: ecolight
+      name: ecolight
