@@ -11,7 +11,7 @@ To keep our repository clean we keep the documentation in folders which are name
 
 ## base functionality
 
-In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. We describe the usecases and the implementation here in the next few paragraphs:
+In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. This logis is stored in the [ecolight.base.yaml](./ecolight.base.yaml) file, which has to be included in the more specific hardware files. (Talking in programmer terms: The ecolight.base.yaml acts as a kind of abstract base class where specific clients can be created with ver little effort)We describe the usecases and the implementation here in the next few paragraphs:
 
 The hardware has no mogic to implement, because the target temperatures and so on are stored on the aggregator. One could also say, that the hardware can be relatively dumb, and just used as a 'display, and measurement device' for a single room.
 
