@@ -1,5 +1,4 @@
 # builds the hardware image for the ttgo-lora-v1 board
-
 name: ttgo-lora-v1
 
 on:
@@ -12,7 +11,7 @@ on:
     
 jobs:
   build:
-    uses: esphome/workflows/.github/workflows/publish.yml@main
+    uses: esphome/build-action@v1.8.0
     with:
-      files: ecolight/hardware/ecolight_ttgo-lora-v1.yml
+      files: hardware/ecolight_ttgo-lora-v1.yml
       name: ecolight
