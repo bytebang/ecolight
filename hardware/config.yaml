@@ -1,14 +1,16 @@
 esphome:
-  name: my_first_project
+  name: ecolight
   platform: ESP32
   board: ttgo-lora32-v1
 
+# definition of the i2c bus
 i2c:
   sda: 4
   scl: 15
   scan: True
   id: bus_a
 
+# font to be used
 font:
   - file: "gfonts://Ubuntu Mono"
     id: font_name
@@ -18,11 +20,9 @@ font:
       family: "Ubuntu Mono"
       weight: bold
     id: font_name_bold
-    size: 44
-  
+    size: 12
 
-
-
+#display to be used
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
