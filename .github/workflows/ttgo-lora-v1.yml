@@ -9,5 +9,5 @@ jobs:
   build:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: ecolight_ttgo-lora-v1.yml
-      name: Your Project Name
+      files: hardware/ecolight_ttgo-lora-v1.yml
+      name: ecolight
