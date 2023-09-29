@@ -8,7 +8,7 @@ esphome:
 i2c:
   sda: 4
   scl: 15
-  scan: True
+  scan: true
   id: bus_a
 
 # font to be used
