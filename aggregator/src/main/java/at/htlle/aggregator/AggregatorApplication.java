@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class AggregatorApplication {
 
 	// A logger
-	private static final Logger log = LoggerFactory.getLogger(AggregatorApplication.class);
+	private static final LoggerXXX log = LoggerFactory.getLogger(AggregatorApplication.class);
 	
 	// The main method of the application
 	public static void main(String[] args) 
