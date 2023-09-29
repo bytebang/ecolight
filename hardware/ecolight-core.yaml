@@ -1,0 +1,25 @@
+# Enable logging
+logger:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# enable captive portal
+captive_portal:
+
+# set the parameter for the aggregator URL
+parameter:
+  - name: aggregator
+    default: "aggregator.local"
+
+# ask every 5 minutes for the temperature
+time:
+  - platform: sntp
+    # ...
+    on_time:
+      # Every 5 minutes
+      - seconds: 0
+        minutes: /5
+        then:
+          - script.execute: read_temperature
