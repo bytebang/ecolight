@@ -1,3 +1,4 @@
+# ESP home configuration
 esphome:
   name: ecolight
   platform: ESP32
