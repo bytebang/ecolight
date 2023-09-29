@@ -10,7 +10,7 @@ We provide information for the end user how to set up such a system and how to o
 ## system architecture
 Ecolight consists of 3 software lavers which interact with another.
 
-1. The [![Hardware](https://github.com/bytebang/ecolight/actions/workflows/hardware.yml/badge.svg)](./hardware) sensors, which is built with an esp32 and [esp.home](https://esphome.io/index.html), 
+1. The [![Hardware](https://github.com/bytebang/ecolight/actions/workflows/hardware.yml/badge.svg)](./hardware) sensors, which are built with an [ttgo lora32 v1](./hardware/ttgo-lora32-v1/README.md) and [esp.home](https://esphome.io/index.html), 
 2. the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](./aggregator) which is responsible to collect data from the sensors and finally
 3. the [![Dashboard](https://github.com/bytebang/ecolight/actions/workflows/dashboard.yml/badge.svg)](./dashboard) which is responsible to vizualize multiple aggregator values and to create a dashboard for the contest
 
