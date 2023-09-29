@@ -11,7 +11,7 @@ on:
     
 jobs:
   build:
-    uses: esphome/build-action@v1.8.0
+    uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
-      files: hardware/ecolight_ttgo-lora-v1.yml
+      files: ./hardware/ecolight_ttgo-lora-v1.yml
       name: ecolight
