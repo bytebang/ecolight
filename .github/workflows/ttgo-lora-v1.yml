@@ -8,10 +8,26 @@ on:
 #      - 'hardware/**'
   pull_request:
     branches: [ "main" ]
-    
+
 jobs:
-  build:
-    uses: esphome/workflows/.github/workflows/publish.yml@main
-    with:
-      files: ecolight_ttgo-lora-v1.yml
-      name: ecolight
+  ci:
+    name: Building ${{ matrix.file }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file:
+          - hardware/ecolight_ttgo-lora-v1.yml
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Build ESPHome firmware to verify configuration
+        uses: esphome/build-action@v1.5.0
+        with:
+          yaml_file: ${{ matrix.file }}
+          
+#jobs:
+#  build:
+#    uses: esphome/workflows/.github/workflows/publish.yml@main
+#    with:
+#      files: ecolight_ttgo-lora-v1.yml
+#      name: ecolight
