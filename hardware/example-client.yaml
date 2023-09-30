@@ -61,7 +61,6 @@ light:
     red: led_red
     green: led_green
     blue: led_blue
-	
 
 # ------ Callback scripts from the ecolight core
 script:
