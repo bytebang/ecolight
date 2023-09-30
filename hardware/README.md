@@ -11,14 +11,11 @@ To keep our repository clean we keep the documentation in folders which are name
 
 ## base functionality
 
-In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. This logis is stored in the [ecolight.base.yaml](./ecolight.base.yaml) file, which has to be included in the more specific hardware files. (Talking in programmer terms: The ecolight.base.yaml acts as a kind of abstract base class where specific clients can be created with ver little effort). 
+In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. This logic is stored in the [ecolight.base.yaml](./ecolight.base.yaml) file, which has to be included in the more specific hardware files. (Talking in programmer terms: The ecolight.base.yaml acts as a kind of abstract base class where specific clients can be created with ver little effort). 
 
-However - the hardware has no magic to implement, because the target temperatures and so on are stored on the aggregator. One could also say, that the hardware can be relatively dumb, and just used as a 'display, and measurement device' for a single room. 
+However - the hardware has no magic to implement, because the target temperatures and so on are stored on the aggregator. One could also say, that the hardware can be relatively dumb, and just used as a 'display, and measurement device' for a single room. The flow is always the same: The hardware is the one which establishes contact with the aggergator, sends the current temperature and the aggregator decides what should be signaled on the hardware. 
 
-
-The flow is always the same: The hardware is the one which establishes contact with the aggergator, sends the current temperature and the aggregator decides what should be signaled on the hardware. 
-
-Lets assume that the `hardware.yaml` includes the `ecolight.base.yaml`, and that a valid aggregator url has been specified in the `secrets.yaml` - then the workflow would look like this:
+So lets assume that the `hardware.yaml` includes the `ecolight.base.yaml`, and that a valid aggregator url has been specified in the `secrets.yaml` - then the workflow would look like this:
 
 ```mermaid
 sequenceDiagram
