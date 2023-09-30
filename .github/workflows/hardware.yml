@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         file:
-          - ./hardware/ttgo-lora32-v1.yaml
+          - ./hardware/example-client.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
