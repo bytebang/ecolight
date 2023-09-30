@@ -9,6 +9,12 @@ wifi:
 # enable captive portal
 captive_portal:
 
+# global variables needed for ecolight
+globals:
+  - id: temperature
+    type: float
+    
+
 # ask every 5 minutes for the temperature
 time:
   - platform: sntp
