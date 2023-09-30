@@ -11,51 +11,72 @@ To keep our repository clean we keep the documentation in folders which are name
 
 ## base functionality
 
-In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. This logis is stored in the [ecolight.base.yaml](./ecolight.base.yaml) file, which has to be included in the more specific hardware files. (Talking in programmer terms: The ecolight.base.yaml acts as a kind of abstract base class where specific clients can be created with ver little effort)We describe the usecases and the implementation here in the next few paragraphs:
+In order to make the whole system work, we have defined some common / core functionality which has to be provided by every platform which wants to participate. This logis is stored in the [ecolight.base.yaml](./ecolight.base.yaml) file, which has to be included in the more specific hardware files. (Talking in programmer terms: The ecolight.base.yaml acts as a kind of abstract base class where specific clients can be created with ver little effort). 
 
-The hardware has no mogic to implement, because the target temperatures and so on are stored on the aggregator. One could also say, that the hardware can be relatively dumb, and just used as a 'display, and measurement device' for a single room.
+However - the hardware has no magic to implement, because the target temperatures and so on are stored on the aggregator. One could also say, that the hardware can be relatively dumb, and just used as a 'display, and measurement device' for a single room. 
 
-The flow is always the same: The hardware is the one which establishes contact with the aggergator, sends the current temperature and the aggregator decides what should be signaled on the hardware.
 
-The ecolight.base.yaml implements the (hardware-independent) core logic, and the other files have to implement 4 scripts which are called from the base logic.
+The flow is always the same: The hardware is the one which establishes contact with the aggergator, sends the current temperature and the aggregator decides what should be signaled on the hardware. 
 
-`````yaml
-# ------ Callback scripts from the ecolight core
-script:
-  # called when it is too warm
-  - id: too_warm
-    then:
-      - light.turn_on
-        id: signaling_light
-        brightness: 100%
-        red: 100%
-        green: 0%
-        blue: 0%
+Lets assume that the `hardware.yaml` includes the `ecolight.base.yaml`, and that a valid aggregator url has been specified in the `secrets.yaml` - then the workflow would look like this:
 
-  # called when the temperature is just right
-  - id: just_right
-    then:
-      - light.turn_on
-        id: signaling_light
-        brightness: 100%
-        red: 0%
-        green: 100%
-        blue: 0%
+```mermaid
+sequenceDiagram
 
-  # called when it is too cold
-  - id: too_cold
-    then:
-      - light.turn_on
-        id: signaling_light
-        brightness: 100%
-        red: 0%
-        green: 0%
-        blue: 100%
+    box living on the hardware platform
+        participant hardware.yaml
+        participant ecolight.base.yaml
+        participant secrets.yaml
+    end
 
-  # called when the temperature needs to be updated
-  - id: read_temperature
-    then:
-      - globals.set:
-      id: temperature
-      value: '25'
-``````
+    participant aggregator
+    
+    hardware.yaml -->> ecolight.base.yaml: include 
+    activate ecolight.base.yaml
+    ecolight.base.yaml -->> secrets.yaml: read secret configuration
+    ecolight.base.yaml -->> ecolight.base.yaml: setup wifi, captive portal, globals, ...
+    deactivate ecolight.base.yaml
+
+    ecolight.base.yaml -->> hardware.yaml: 
+    hardware.yaml -->> hardware.yaml: Setup display, sensors, signaling
+    Note right of hardware.yaml: This part depends heavily on the used hardware
+    
+    hardware.yaml -->> hardware.yaml: implement the script 'read_temperature'
+    Note right of hardware.yaml: This script will be called whenever a temperature should be read
+
+    hardware.yaml -->> hardware.yaml: implement the script 'too_warm'
+    Note right of hardware.yaml: This script will be called whenthe temperature is too warm
+
+    hardware.yaml -->> hardware.yaml: implement the script 'just_right'
+    Note right of hardware.yaml: This script will be called whenthe temperature is within the limits
+
+    hardware.yaml -->> hardware.yaml: implement the script 'too_cold'
+    Note right of hardware.yaml: This script will be called whenthe temperature is too cold
+
+    loop Loop every 5 seconds
+        ecolight.base.yaml -->> hardware.yaml: call script read_temperature
+        activate hardware.yaml
+        hardware.yaml -->> hardware.yaml: read temperature from sensor
+        hardware.yaml -->> hardware.yaml: write current temperature to global 'temperature'
+        deactivate hardware.yaml
+        hardware.yaml -->> ecolight.base.yaml: 
+        
+        activate ecolight.base.yaml
+        ecolight.base.yaml -->> aggregator: Send current temperature to the aggregator
+        aggregator -->> ecolight.base.yaml : Send current status back
+        ecolight.base.yaml -->> ecolight.base.yaml : store min temperature on global 'min_temperature'
+        ecolight.base.yaml -->> ecolight.base.yaml : store max temperature on global 'max_temperature'
+        deactivate ecolight.base.yaml
+
+        alt too_warm
+            ecolight.base.yaml-->>hardware.yaml: call script 'too_warm'
+            Note right of hardware.yaml: signal that it is too warm
+        else just_right
+            ecolight.base.yaml-->>hardware.yaml: call script 'just_right'
+            Note right of hardware.yaml: signal that the temperature is OK
+        else too_cold
+            ecolight.base.yaml-->>hardware.yaml: call script 'too_cold'
+            Note right of hardware.yaml: signal that it is too cold
+        end
+    end
+```
