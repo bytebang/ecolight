@@ -98,5 +98,5 @@ script:
   - id: read_temperature
     then:
       - globals.set:
-        id: temperature
-        value: '25'
+          id: temperature
+          value: '25'
