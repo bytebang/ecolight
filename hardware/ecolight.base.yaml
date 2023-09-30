@@ -1,17 +1,13 @@
 # Enable logging
 logger:
 
+# enable wifi
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 # enable captive portal
 captive_portal:
-
-# set the parameter for the aggregator URL
-parameter:
-  - name: aggregator
-    default: "aggregator.local"
 
 # ask every 5 minutes for the temperature
 time:
