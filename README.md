@@ -20,14 +20,14 @@ graph BT;
 
     subgraph Example setup
         direction BT
-        s1("Sensor 1") --> a1("Building A");
+        s1("Sensor 1") --> a1("Block A");
 
-        s2("Sensor 2") --> a2("Building B");
+        s2("Sensor 2") --> a2("Division B");
         s3("Sensor 3") --> a2;
 	    s4("Sensor 4") --> a2;
         s5("Sensor 5") --> a2;
 
-        s6("Sensor 6") --> an("Block C");
+        s6("Sensor 6") --> an("Building C");
         s7("Sensor 7") --> an;
         sx("Sensor ...") --> an;
 
