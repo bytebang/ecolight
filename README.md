@@ -15,8 +15,8 @@ Ecolight consists of 3 software lavers which interact with another.
 graph BT;
 
     
-    Room_Level --> Department_Level
-    Department_Level --> Organisation_Level
+    Room_Level --  http(s) --> Department_Level
+    Department_Level -- http(s) --> Organisation_Level
 
     Hardware_1 --> Aggregator_1;
 
