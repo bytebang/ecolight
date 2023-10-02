@@ -14,6 +14,10 @@ Ecolight consists of 3 software lavers which interact with another.
 	
 graph BT;
 
+    
+    Room_Level --> Department_Level
+    Department_Level --> Organisation_Level
+
     Hardware_1 --> Aggregator_1;
 
     Hardware_2 --> Aggregator_2;
@@ -29,9 +33,6 @@ graph BT;
     Aggregator_2 --> Dashboard_1;
     Aggregator_n --> Dashboard_1;
 
-    
-    Room_Level --> Department_Level
-    Department_Level --> Organisation_Level
 ````
 
 1. The [![Hardware](https://github.com/bytebang/ecolight/actions/workflows/hardware.yml/badge.svg)](./hardware) sensors, which are built with an [ttgo lora32 v1](./hardware/ttgo-lora32-v1/README.md) and [esp.home](https://esphome.io/index.html), 
