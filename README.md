@@ -20,18 +20,18 @@ graph BT;
 
     subgraph Example setup
         direction BT
-        s1("Sensor 1") --> a1("Block A");
+        s1("[Hardware]<br>Sensor 1") --> a1("[Aggregator]<br>Block A");
 
-        s2("Sensor 2") --> a2("Division B");
-        s3("Sensor 3") --> a2;
-	    s4("Sensor 4") --> a2;
-        s5("Sensor 5") --> a2;
+        s2("[Hardware]<br>Sensor 2") --> a2("[Aggregator]<br>Division B");
+        s3("[Hardware]<br>Sensor 3") --> a2;
+        s4("[Hardware]<br>Sensor 4") --> a2;
+        s5("[Hardware]<br>Sensor 5") --> a2;
 
-        s6("Sensor 6") --> an("Building C");
-        s7("Sensor 7") --> an;
-        sx("Sensor ...") --> an;
+        s6("[Hardware]<br>Sensor 6") --> an("[Aggregator]<br>Building C");
+        s7("[Hardware]<br>Sensor 7") --> an;
+        sx("[Hardware]<br>Sensor ...") --> an;
 
-        a1 --> b1("Company X");
+        a1 --> b1("[Dashboard]<br>Company X");
         a2 --> b1;
         an --> b1;
     end
