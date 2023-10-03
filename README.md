@@ -11,7 +11,7 @@ We provide information for the end user how to set up such a system and how to o
 Ecolight consists of 3 software lavers which interact with another.
 
 1. The [![Dashboard](https://github.com/bytebang/ecolight/actions/workflows/dashboard.yml/badge.svg)](./dashboard) which is responsible to vizualize multiple aggregator values for a quick overview
-2. the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](./aggregator) which is responsible to collect data from and supply setpoints for the sensors and finally
+2. the [![Aggregator](https://github.com/bytebang/ecolight/actions/workflows/aggregator.yml/badge.svg)](./aggregator) which is responsible to collect data from and supply setpoints for the sensors and 
 3. the [![Hardware](https://github.com/bytebang/ecolight/actions/workflows/hardware.yml/badge.svg)](./hardware), which is built with an [ttgo lora32 v1](./hardware/ttgo-lora32-v1/README.md) and [esp.home](https://esphome.io/index.html), 
 
 
@@ -43,7 +43,7 @@ graph BT;
     end
 ````
 
-Every layer 'lives' in its own ecosystem (docker container) and exchanges data via HTTP Requests. The communication is always from bottom to top - which minimizes network issues. Beside this the hardware can also be [integrated in the _Home Assistant_](https://www.home-assistant.io/integrations/esphome/) home automation system. 
+Every layer 'lives' in its own (docker) container and exchanges data with the other layers via HTTP Requests. The communication is always from bottom to top - which minimizes network issues. Beside this the hardware can also be [integrated in the _Home Assistant_](https://www.home-assistant.io/integrations/esphome/) home automation system. 
 
 
 # license 
