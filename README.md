@@ -1,5 +1,8 @@
 # ecolight
 
+<img src="ecolight-logo.svg" align="left" height="80px"/>
+
+
 The objective of _ecolight_ is to reduce energy consumption of buildings by creating an engaging contest-like setup that encourages individuals to maintain room temperatures within a specified range. Beside this, it is possible to use the sensors in a [home-automation system](https://www.home-assistant.io/) to visualize the temperatures in your building 
 
 ## usage
