@@ -1,0 +1,66 @@
+package at.htlle.aggregator;
+
+import jakarta.persistence.*;
+
+import java.sql.Timestamp;
+
+@Entity
+public class TempValue {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="esp_id")
+    private ESP esp;
+
+    private double actualTemp;
+
+    private double tempUpperBound;
+
+    private double tempLowerBound;
+
+    private Timestamp timestamp;
+
+    public TempValue() {
+
+    }
+
+    public TempValue(double tempLowerBound, double tempUpperBound, double actualTemp) {
+        this.actualTemp = actualTemp;
+        this.tempLowerBound = tempLowerBound;
+        this.tempUpperBound = tempUpperBound;
+    }
+
+    public double getActualTemp() {
+        return actualTemp;
+    }
+
+    public void setActualTemp(double actualTemp) {
+        this.actualTemp = actualTemp;
+    }
+
+    public double getTempUpperBound() {
+        return tempUpperBound;
+    }
+
+    public void setTempUpperBound(double tempUpperBound) {
+        this.tempUpperBound = tempUpperBound;
+    }
+
+    public double getTempLowerBound() {
+        return tempLowerBound;
+    }
+
+    public void setTempLowerBound(double tempLowerBound) {
+        this.tempLowerBound = tempLowerBound;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+}

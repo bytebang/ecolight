@@ -17,19 +17,17 @@ public class AggregatorApplication {
 	public static void main(String[] args) 
 	{
 		SpringApplication.run(AggregatorApplication.class, args);
+
 	}
 
 	@Bean
-	public CommandLineRunner demo(PersonRepository repository) {
+	public CommandLineRunner demo(EspRepository repository) {
 		return (args) -> {
 			// save a few customers
 			
-			log.info("Save some persons");
-			repository.save(new Person("Jack", "Bauer"));
-			repository.save(new Person("Chloe", "O'Brian"));
-			repository.save(new Person("Kim", "Bauer"));
-			repository.save(new Person("David", "Palmer"));
-			repository.save(new Person("Michelle", "Dessler"));
+			log.info("Save some ESP");
+			repository.save(new ESP("HTL"));
+
 
 			// fetch all customers
 			log.info("There are now " + repository.count() + " Persons in the database");		};
