@@ -6,6 +6,7 @@ http://aggserver.local/dashboardapi/v1/
 /currentvalues/
 
 wir brauchen einen server der via "listen" überprüft ob daten an das dashboard gesendet werden
+vielleicht damit: "RESTful API using Spring MVC"
 
 
 
