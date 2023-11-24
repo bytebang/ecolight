@@ -1,13 +1,103 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="de">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Light Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .w3-bar-item {
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+        .w3-bar-item:hover {
+            border-bottom: 2px solid #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 50px; /* Platz für die Navbar lassen */
+        }
+        .w3-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-
 <body>
 
-</body>
+    <!-- Navigation Bar -->
+    <div class="w3-bar w3-white navbar">
+        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey">Startseite</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey">Geräte</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-text-grey">Einstellungen</a>
+        <a href="#" class="w3-bar-item w3-button w3-right w3-teal w3-hover-none">Abmelden</a>
+    </div>
 
+    <!-- ... Rest des Codes bleibt unverändert ... -->
+
+
+    <!-- Header -->
+    <header>
+        <h1>Eco-Light Dashboard</h1>
+    </header>
+
+    <!-- Content Bereich -->
+    <div class="w3-container">
+        <h2>Main Page</h2>
+        
+        <!-- Scoreboard mit Dummy-Daten -->
+        <table class="w3-table w3-bordered w3-striped">
+            <thead>
+                <tr class="w3-teal">
+                    <th>Gerätename</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gerät 1</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>Gerät 2</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>Gerät 3</td>
+                    <td>92</td>
+                </tr>
+                <!-- Hier können weitere Zeilen mit Dummy-Daten hinzugefügt werden -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container">
+        <p>© 2023 Eco-Light. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
 </html>
