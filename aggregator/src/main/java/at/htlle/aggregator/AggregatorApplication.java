@@ -25,11 +25,11 @@ public class AggregatorApplication {
 		return (args) -> {
 			// save a few customers
 			
-			log.info("Save some ESP");
-			repository.save(new ESP("HTL"));
+			log.info("Save some HardwareAssets");
+			repository.save(new HardwareAsset("HTL"));
 
 
 			// fetch all customers
-			log.info("There are now " + repository.count() + " Esp in the database");		};
+			log.info("There are now " + repository.count() + " HardwareAssets in the database");		};
 	}
 }

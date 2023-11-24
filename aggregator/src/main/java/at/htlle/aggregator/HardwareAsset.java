@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class ESP {
+public class HardwareAsset {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,12 +18,12 @@ public class ESP {
 
 
 
-	public ESP(String location) {
+	public HardwareAsset(String location) {
 		this.loc = location;
 
 	}
 
-	public ESP() {
+	public HardwareAsset() {
 
 	}
 

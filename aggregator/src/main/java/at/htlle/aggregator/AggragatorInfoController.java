@@ -24,17 +24,17 @@ public class AggragatorInfoController
 
 
 	@GetMapping
-	public List<ESP> espListAll() {
-		return (List<ESP>) espRepository.findAll();
+	public List<HardwareAsset> espListAll() {
+		return (List<HardwareAsset>) espRepository.findAll();
 	}
 
 	@GetMapping
-	public ESP listOneEsp(long id) {
+	public HardwareAsset listOneEsp(long id) {
 		return espRepository.findById(id).orElseThrow(() -> new EspNotFoundException(id));
 	}
 
 	@PostMapping
-	public ESP newESP(@RequestBody ESP newESP) {
+	public HardwareAsset newESP(@RequestBody HardwareAsset newESP) {
 		return espRepository.save(newESP);
 	}
 
