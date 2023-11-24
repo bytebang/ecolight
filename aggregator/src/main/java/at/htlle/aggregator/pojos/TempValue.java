@@ -1,4 +1,4 @@
-package at.htlle.aggregator;
+package at.htlle.aggregator.pojos;
 
 import jakarta.persistence.*;
 

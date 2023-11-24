@@ -2,6 +2,7 @@ package at.htlle.aggregator;
 
 import java.util.List;
 
+import at.htlle.aggregator.pojos.HardwareAsset;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

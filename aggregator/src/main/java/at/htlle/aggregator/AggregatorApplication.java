@@ -1,5 +1,6 @@
 package at.htlle.aggregator;
 
+import at.htlle.aggregator.pojos.HardwareAsset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
