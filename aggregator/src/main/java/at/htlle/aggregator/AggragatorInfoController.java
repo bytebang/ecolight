@@ -10,9 +10,9 @@ import java.util.List;
 public class AggragatorInfoController 
 {
 
-	private final EspRepository espRepository;
+	private final at.htlle.aggregator.espRepository espRepository;
 
-	public AggragatorInfoController(EspRepository espRepository) {
+	public AggragatorInfoController(at.htlle.aggregator.espRepository espRepository) {
 		this.espRepository = espRepository;
 	}
 

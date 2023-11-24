@@ -21,7 +21,7 @@ public class AggregatorApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(EspRepository repository) {
+	public CommandLineRunner demo(espRepository repository) {
 		return (args) -> {
 			// save a few customers
 			

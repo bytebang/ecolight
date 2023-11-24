@@ -13,13 +13,13 @@ public class ESP {
 
 	private long id;
 
-	private String location;
+	private String loc;
 
 
 
 
 	public ESP(String location) {
-		this.location = location;
+		this.loc = location;
 
 	}
 
@@ -27,12 +27,12 @@ public class ESP {
 
 	}
 
-	public String getLocation() {
-		return location;
+	public String getLoc() {
+		return loc;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLoc(String loc) {
+		this.loc = loc;
 	}
 
 
