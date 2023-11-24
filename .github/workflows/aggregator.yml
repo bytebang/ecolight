@@ -32,3 +32,9 @@ jobs:
     - name: Build with Maven
       working-directory: aggregator
       run: mvn -B package --file pom.xml
+
+    - name: Pull H2 Docker image
+      run: docker pull jesperdj/h2
+
+    - name: Build and run H2 container
+      run: docker run -d -p 8082:8082 -p 9092:9092 --name h2Database jesperdj/h2
