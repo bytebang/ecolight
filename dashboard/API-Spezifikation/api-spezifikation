@@ -1,0 +1,32 @@
+endpoint aggregator--dashboard:
+
+http://aggserver.local/dashboardapi/v1/
+
+/historicalvalues/
+/currentvalues/
+
+
+
+
+
+
+
+
+endpoint aggregator--UI:
+
+http://aggserver.local/uiapi/v1/
+
+GET: /temperatures/{hardware_id}
+SET: /temperaturerange?hardware_id={hardware_id}&temperature_upperbound={temperature_upperbound}&temperature_lowerbound={temperature_lowerbound}  [authentication]
+CRUD: User Object (admin/energiebeauftragter)
+CRUD: Hardware Assets
+
+
+
+
+
+
+
+endpoiint aggregator--esp:
+
+http://aggserver.local/hardwareapi/v1/

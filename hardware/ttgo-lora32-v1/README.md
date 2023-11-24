@@ -1,6 +1,6 @@
 # Description
 
-<img src="pinout.png" align="right" width="50%"/>
+<img src="ttgo_v1_pinout.jpg" align="right" width="50%"/>
 
 * ESP32 with 2.4 GHz WiFi, BT, Dual Core, 240MHz clock frequency, and 4MB Flash memory
 * Data rates: 150 Mbps @ 11n HT40, 72 Mbps @ 11n HT20, 54 Mbps @ 11g, 11 Mbps @ 11b
