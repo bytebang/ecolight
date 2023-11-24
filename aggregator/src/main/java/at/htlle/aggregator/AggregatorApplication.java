@@ -21,7 +21,7 @@ public class AggregatorApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(ESPRepository repository) {
+	public CommandLineRunner demo(EspRepository repository) {
 		return (args) -> {
 			// save a few customers
 			
@@ -30,6 +30,6 @@ public class AggregatorApplication {
 
 
 			// fetch all customers
-			log.info("There are now " + repository.count() + " ESP in the database");		};
+			log.info("There are now " + repository.count() + " Esp in the database");		};
 	}
 }

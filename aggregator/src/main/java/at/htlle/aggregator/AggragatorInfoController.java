@@ -10,16 +10,16 @@ import java.util.List;
 public class AggragatorInfoController 
 {
 
-	private final ESPRepository espRepository;
+	private final EspRepository espRepository;
 
-	public AggragatorInfoController(ESPRepository espRepository) {
+	public AggragatorInfoController(EspRepository espRepository) {
 		this.espRepository = espRepository;
 	}
 
 	@GetMapping("/location")
-    public String getAggregatorLocation(@Value("${aggregator.location}") String loc)
+    public String getAggregatorLocation(@Value("${aggregator.location}") String location)
 	{
-		return loc;
+		return location;
     }
 
 

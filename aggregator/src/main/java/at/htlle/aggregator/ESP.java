@@ -5,9 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.sql.Timestamp;
-import java.util.HashMap;
-
 @Entity
 public class ESP {
 
@@ -16,13 +13,13 @@ public class ESP {
 
 	private long id;
 
-	private String loc;
+	private String location;
 
 
 
 
 	public ESP(String location) {
-		this.loc = location;
+		this.location = location;
 
 	}
 
@@ -31,11 +28,11 @@ public class ESP {
 	}
 
 	public String getLocation() {
-		return loc;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		this.loc = location;
+		this.location = location;
 	}
 
 
