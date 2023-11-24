@@ -16,13 +16,13 @@ public class ESP {
 
 	private long id;
 
-	private String location;
+	private String loc;
 
 
 
 
 	public ESP(String location) {
-		this.location = location;
+		this.loc = location;
 
 	}
 
@@ -31,11 +31,11 @@ public class ESP {
 	}
 
 	public String getLocation() {
-		return location;
+		return loc;
 	}
 
 	public void setLocation(String location) {
-		this.location = location;
+		this.loc = location;
 	}
 
 

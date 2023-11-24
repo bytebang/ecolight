@@ -11,7 +11,7 @@ public class TempValue {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="esp_id")
+    @JoinColumn(name="esp_ID")
     private ESP esp;
 
     private double actualTemp;
