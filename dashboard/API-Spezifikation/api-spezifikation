@@ -5,7 +5,7 @@ http://aggserver.local/dashboardapi/v1/
 /historicalvalues/
 /currentvalues/
 
-
+wir brauchen einen server der via "listen" überprüft ob daten an das dashboard gesendet werden
 
 
 
