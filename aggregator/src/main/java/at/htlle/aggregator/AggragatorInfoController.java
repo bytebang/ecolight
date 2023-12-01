@@ -23,24 +23,23 @@ public class AggragatorInfoController
 		return location;
     }
 
-
-	@GetMapping
+	@GetMapping("/listHardware")
 	public List<HardwareAsset> espListAll() {
 		return (List<HardwareAsset>) espRepository.findAll();
 	}
 
-	@GetMapping
+	@GetMapping("/listoneHardware")
 	public List<HardwareAsset> listOneEsp(long id) {
 		//return espRepository.findById(id).set(() -> new EspNotFoundException(id));
 		return espRepository.findById(id);
 	}
 
-	@PostMapping
+	@PostMapping("/addHardware")
 	public HardwareAsset newESP(@RequestBody HardwareAsset newESP) {
 		return espRepository.save(newESP);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/removeHardware")
 	public void deleteESP(@PathVariable long id) {
 		espRepository.deleteById(id);
 	}
