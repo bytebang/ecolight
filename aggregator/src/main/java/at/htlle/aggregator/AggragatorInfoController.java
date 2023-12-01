@@ -30,8 +30,9 @@ public class AggragatorInfoController
 	}
 
 	@GetMapping
-	public HardwareAsset listOneEsp(long id) {
-		return espRepository.findById(id).orElseThrow(() -> new EspNotFoundException(id));
+	public List<HardwareAsset> listOneEsp(long id) {
+		//return espRepository.findById(id).set(() -> new EspNotFoundException(id));
+		return espRepository.findById(id);
 	}
 
 	@PostMapping

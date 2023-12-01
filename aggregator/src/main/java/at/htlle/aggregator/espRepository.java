@@ -11,6 +11,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "hardwareAsset", path = "hardwareAsset")
 public interface espRepository extends PagingAndSortingRepository<HardwareAsset, Long>, CrudRepository<HardwareAsset,Long> {
 
-	List<HardwareAsset> findByID(@Param("id") long id);
+	List<HardwareAsset> findById(@Param("id") long id);
 
 }
