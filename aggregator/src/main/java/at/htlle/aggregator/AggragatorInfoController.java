@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("info")
+@RequestMapping("API/v1")
 public class AggragatorInfoController 
 {
 
@@ -23,23 +23,22 @@ public class AggragatorInfoController
 		return location;
     }
 
-
-	@GetMapping
+	@GetMapping("/listHardware")
 	public List<HardwareAsset> espListAll() {
 		return (List<HardwareAsset>) espRepository.findAll();
 	}
 
-	@GetMapping
-	public HardwareAsset listOneEsp(long id) {
-		return espRepository.findById(id).orElseThrow(() -> new EspNotFoundException(id));
+	@GetMapping("/listoneHardware")
+	public List<HardwareAsset> listOneEsp(long id) {
+		return espRepository.findById(id);
 	}
 
-	@PostMapping
+	@PostMapping("/addHardware")
 	public HardwareAsset newESP(@RequestBody HardwareAsset newESP) {
 		return espRepository.save(newESP);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/removeHardware")
 	public void deleteESP(@PathVariable long id) {
 		espRepository.deleteById(id);
 	}
