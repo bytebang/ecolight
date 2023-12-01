@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("info")
+@RequestMapping("API/v1")
 public class AggragatorInfoController 
 {
 
@@ -30,7 +30,6 @@ public class AggragatorInfoController
 
 	@GetMapping("/listoneHardware")
 	public List<HardwareAsset> listOneEsp(long id) {
-		//return espRepository.findById(id).set(() -> new EspNotFoundException(id));
 		return espRepository.findById(id);
 	}
 
