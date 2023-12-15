@@ -1,5 +1,6 @@
 package at.htlle.aggregator.pojos;
 
+import at.htlle.aggregator.TempRepository;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -22,6 +23,7 @@ public class TempValue {
 
     private Timestamp timestamp;
 
+
     public TempValue() {
 
     }
@@ -30,6 +32,14 @@ public class TempValue {
         this.actualTemp = actualTemp;
         this.tempLowerBound = tempLowerBound;
         this.tempUpperBound = tempUpperBound;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getActualTemp() {
@@ -45,7 +55,7 @@ public class TempValue {
     }
 
     public void setTempUpperBound(double tempUpperBound) {
-        this.tempUpperBound = tempUpperBound;
+       this.tempUpperBound = tempUpperBound;
     }
 
     public double getTempLowerBound() {

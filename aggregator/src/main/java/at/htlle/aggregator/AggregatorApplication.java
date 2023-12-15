@@ -22,7 +22,7 @@ public class AggregatorApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(espRepository repository) {
+	public CommandLineRunner demo(HardwareAssetRepository repository) {
 		return (args) -> {
 			// save a few customers
 			

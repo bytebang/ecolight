@@ -11,12 +11,13 @@ import java.util.List;
 @RequestMapping("API/v1")
 public class AggregatorUiController {
 
-	private final at.htlle.aggregator.espRepository espRepository;
+	private HardwareAssetRepository hardwareAssetRepository;
+	private TempRepository tempRepository;
 	private TempValue tempValue;
 	private List<HardwareAsset> hardwareAssets;
 
-	public AggregatorUiController(at.htlle.aggregator.espRepository espRepository) {
-		this.espRepository = espRepository;
+	public AggregatorUiController(HardwareAssetRepository hardwareAssetRepository) {
+		this.hardwareAssetRepository = hardwareAssetRepository;
 	}
 
 	@GetMapping("/location")
@@ -26,37 +27,47 @@ public class AggregatorUiController {
 
 	@GetMapping("/listHardware")
 	public List<HardwareAsset> espListAll() {
-		return (List<HardwareAsset>) espRepository.findAll();
+		return (List<HardwareAsset>) hardwareAssetRepository.findAll();
 	}
 
 	@GetMapping("/listoneHardware")
 	public List<HardwareAsset> listOneEsp(long id) {
-		return espRepository.findById(id);
+		return hardwareAssetRepository.findById(id);
 	}
 
 	@PostMapping("/addHardware")
 	public HardwareAsset newESP(@RequestBody HardwareAsset newESP) {
-		return espRepository.save(newESP);
+		return hardwareAssetRepository.save(newESP);
 	}
 
 	@DeleteMapping("/removeHardware")
 	public void deleteESP(@PathVariable long id) {
-		espRepository.deleteById(id);
+		hardwareAssetRepository.deleteById(id);
 	}
 
 
 	@GetMapping("/getTempValue")
-	public double getTempValue(long id) {
-		return 0;
+	public HardwareAsset getTempValue(long id) {
+
+		return hardwareAssetRepository.findById(id).get((int) tempValue.getActualTemp());
 
 	}
 	@GetMapping("/setUpperBound")
-	public double setUpperBound(long id, double value) {
-		return 0;
+	public void setUpperBound(long id, int value) {
+		HardwareAsset asset = hardwareAssetRepository.findById(id).get(0);
+		asset.getTempValues().get(0).setTempUpperBound(value);
+
+
+
+
+
+
 	}
 	@GetMapping("/setLowerBound")
-	public double setLowerBound(long id, double value) {
-		return 0;
+	public void setLowerBound(long id, double value) {
+		HardwareAsset asset = hardwareAssetRepository.findById(id).get(0);
+		asset.getTempValues().get(0).setTempLowerBound(value);
+
 	}
 
 

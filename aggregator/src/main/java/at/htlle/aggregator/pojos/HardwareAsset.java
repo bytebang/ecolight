@@ -1,9 +1,8 @@
 package at.htlle.aggregator.pojos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class HardwareAsset {
@@ -14,9 +13,8 @@ public class HardwareAsset {
 	private long id;
 
 	private String loc;
-
-
-
+	@OneToMany
+	List<TempValue> tempValues;
 
 	public HardwareAsset(String location) {
 		this.loc = location;
@@ -35,5 +33,11 @@ public class HardwareAsset {
 		this.loc = loc;
 	}
 
+	public List<TempValue> getTempValues() {
+		return tempValues;
+	}
 
+	public void setTempValues(List<TempValue> tempValues) {
+		this.tempValues = tempValues;
+	}
 }
