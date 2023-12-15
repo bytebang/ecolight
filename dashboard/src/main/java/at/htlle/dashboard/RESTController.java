@@ -1,6 +1,6 @@
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,17 +10,27 @@ public class RESTController {
 
     @PostMapping("/historicalvalues")
     @ResponseBody
-    public double receiveHistoricalvalues(@RequestBody double historicalvalues {
+    public ResponseEntity<double[]> receiveHistoricalValues(@RequestBody double[] historicalValues) {
         // Process the received data
-        System.out.println("Received data: " + historicalvalues);
-        return historicalvalues;
+        for (double value : historicalValues) {
+            System.out.println("Received historical value: " + value);
+            // You can perform additional processing here if needed
+        }
+
+        // Assuming you want to return a response with the same array
+        return new ResponseEntity<>(historicalValues, HttpStatus.OK);
     }
+
     @PostMapping("/currentvalues")
     @ResponseBody
-    public double receiveCurrentvalues(@RequestBody double currentvalues) {
+    public ResponseEntity<double[]> receiveCurrentValues(@RequestBody double[] currentValues) {
         // Process the received data
-        System.out.println("Received data: " + currentvalues);
-        return currentvalues;
+        for (double value : currentValues) {
+            System.out.println("Received current value: " + value);
+            // You can perform additional processing here if needed
         }
+
+        // Assuming you want to return a response with the same array
+        return new ResponseEntity<>(currentValues, HttpStatus.OK);
     }
 }
