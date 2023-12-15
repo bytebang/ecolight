@@ -10,9 +10,17 @@ public class RESTController {
 
     @PostMapping("/historicalvalues")
     @ResponseBody
-    public String receiveData(@RequestBody String data) {
+    public double receiveHistoricalvalues(@RequestBody double historicalvalues {
         // Process the received data
-        System.out.println("Received data: " + data);
-        return "Data received successfully!";
+        System.out.println("Received data: " + historicalvalues);
+        return historicalvalues;
+    }
+    @PostMapping("/currentvalues")
+    @ResponseBody
+    public double receiveCurrentvalues(@RequestBody double currentvalues) {
+        // Process the received data
+        System.out.println("Received data: " + currentvalues);
+        return currentvalues;
+        }
     }
 }
