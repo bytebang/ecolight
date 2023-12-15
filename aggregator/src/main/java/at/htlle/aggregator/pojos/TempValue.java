@@ -4,6 +4,7 @@ import at.htlle.aggregator.TempRepository;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 public class TempValue {
@@ -32,6 +33,7 @@ public class TempValue {
         this.actualTemp = actualTemp;
         this.tempLowerBound = tempLowerBound;
         this.tempUpperBound = tempUpperBound;
+        this.timestamp = Timestamp.valueOf(LocalDateTime.now());
     }
 
     public Long getId() {
