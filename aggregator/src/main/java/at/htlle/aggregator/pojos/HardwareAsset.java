@@ -13,7 +13,7 @@ public class HardwareAsset {
 	private long id;
 
 	private String loc;
-	@OneToMany
+	@OneToMany(mappedBy = "hardwareAsset")
 	List<TempValue> tempValues;
 
 	public HardwareAsset(String location) {
