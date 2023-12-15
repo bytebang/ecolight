@@ -1,6 +1,7 @@
 package at.htlle.aggregator;
 
 import at.htlle.aggregator.pojos.HardwareAsset;
+import at.htlle.aggregator.pojos.TempValue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,20 +9,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("API/v1")
-public class AggragatorInfoController 
-{
+public class AggregatorUiController {
 
 	private final at.htlle.aggregator.espRepository espRepository;
+	private TempValue tempValue;
+	private List<HardwareAsset> hardwareAssets;
 
-	public AggragatorInfoController(at.htlle.aggregator.espRepository espRepository) {
+	public AggregatorUiController(at.htlle.aggregator.espRepository espRepository) {
 		this.espRepository = espRepository;
 	}
 
 	@GetMapping("/location")
-    public String getAggregatorLocation(@Value("${aggregator.location}") String location)
-	{
+	public String getAggregatorLocation(@Value("${aggregator.location}") String location) {
 		return location;
-    }
+	}
 
 	@GetMapping("/listHardware")
 	public List<HardwareAsset> espListAll() {
@@ -43,4 +44,23 @@ public class AggragatorInfoController
 		espRepository.deleteById(id);
 	}
 
+
+	@GetMapping("/getTempValue")
+	public double getTempValue(long id) {
+		return 0;
+
+	}
+	@GetMapping("/setUpperBound")
+	public double setUpperBound(long id, double value) {
+		return 0;
+	}
+	@GetMapping("/setLowerBound")
+	public double setLowerBound(long id, double value) {
+		return 0;
+	}
+
+
+
 }
+
+
