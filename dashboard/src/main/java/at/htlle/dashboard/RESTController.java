@@ -1,10 +1,6 @@
-<<<<<<< Updated upstream
+package at.htlle.dashboard;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-=======
-package at.htlle.dashboard;
-
->>>>>>> Stashed changes
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
