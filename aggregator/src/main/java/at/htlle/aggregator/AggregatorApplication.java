@@ -27,7 +27,8 @@ public class AggregatorApplication {
 			// save a few customers
 			
 			log.info("Save some HardwareAssets");
-			repository.save(new HardwareAsset("HTL"));
+
+			//repository.save(new HardwareAsset("HTL"));
 
 
 			// fetch all customers

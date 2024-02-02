@@ -1,0 +1,305 @@
+openapi: 3.0.0
+info:
+  title: Aggregator API
+  version: 1.0.1
+servers:
+  - url: http://aggserver.local/uiapi/v1/
+paths:
+  /historicalvalues/{hardware_id}:
+    get:
+      summary: Retrieve historical values
+      parameters:
+        - name: hardware_id
+          in: path
+          required: true
+          description: ID of the hardware
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /currentvalue/{hardware_id}:
+    get:
+      summary: Retrieve current values
+      parameters:
+        - name: hardware_id
+          in: path
+          required: true
+          description: ID of the hardware
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /temperatures/{hardware_id}:
+    get:
+      summary: Get temperatures for a specific hardware ID
+      parameters:
+        - name: hardware_id
+          in: path
+          required: true
+          description: ID of the hardware
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /temperaturerange/{hardware_id}:
+    put:
+      summary: Set temperature range for a hardware ID
+      parameters:
+        - name: hardware_id
+          in: path
+          required: true
+          description: ID of the hardware
+          schema:
+            type: string
+        - name: temperature_upperbound
+          in: query
+          required: true
+          description: Upper bound of the temperature range
+          schema:
+            type: number
+        - name: temperature_lowerbound
+          in: query
+          required: true
+          description: Lower bound of the temperature range
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful response
+  /hardwareassets:
+    get:
+      summary: Get all HardwareAssets
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new HardwareAsset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                loc:
+                  type: string
+              required:
+                - loc
+      responses:
+        '201':
+          description: HardwareAsset created
+  /hardwareassets/{id}:
+    get:
+      summary: Get a HardwareAsset by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the HardwareAsset
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update a HardwareAsset by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the HardwareAsset
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                loc:
+                  type: string
+              required:
+                - loc
+      responses:
+        '200':
+          description: HardwareAsset updated
+    delete:
+      summary: Delete a HardwareAsset by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the HardwareAsset
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: HardwareAsset deleted
+  /users:
+    get:
+      summary: Get all Users
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+              required:
+                - username
+                - password
+                - role
+      responses:
+        '201':
+          description: User created
+  /users/{id}:
+    get:
+      summary: Get a User by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the User
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update a User by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the User
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                role:
+                  type: string
+              required:
+                - username
+                - password
+                - role
+      responses:
+        '200':
+          description: User updated
+    delete:
+      summary: Delete a User by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the User
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: User deleted
+  /tempvalues:
+    get:
+      summary: Get all TempValues
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new TempValue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tempLowerBound:
+                  type: number
+                tempUpperBound:
+                  type: number
+                actualTemp:
+                  type: number
+              required:
+                - tempLowerBound
+                - tempUpperBound
+                - actualTemp
+      responses:
+        '201':
+          description: TempValue created
+  /tempvalues/{id}:
+    get:
+      summary: Get a TempValue by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the TempValue
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update a TempValue by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the TempValue
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tempLowerBound:
+                  type: number
+                tempUpperBound:
+                  type: number
+                actualTemp:
+                  type: number
+              required:
+                - tempLowerBound
+                - tempUpperBound
+                - actualTemp
+      responses:
+        '200':
+          description: TempValue updated
+    delete:
+      summary: Delete a TempValue by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the TempValue
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: TempValue deleted
